@@ -1,25 +1,25 @@
-﻿#-----------------------------------------------------------------------------#
-#                                                                             #
-#   Function        LogRoll                                                   #
-#                                                                             #
-#   Description     Roll logfiles to a specified size and logcount            #
-#                                                                             #
-#   Arguments       See the Param() block                                     #
-#                                                                             #
-#   Notes           Function checks if file $fileName is larger than          #
-#                   the parameter $filesize and if it is it will roll a log   #
-#                   and delete the oldest log if there are more than          #
-#                   $logcount logs.                                           #
-#                                                                             #
-#   History                                                                   #
-#                                                                             #
-#   Example         LogRoll -fileName $logfile -filesize 1mb -logcount 5      #
-#                                                                             #
-#-----------------------------------------------------------------------------#
+﻿#----------------------------------------------------------------------------------#
+#                                                                                  #
+#   Function        Invoke-LogRoll                                                 #
+#                                                                                  #
+#   Description     Roll logfiles to a specified size and logcount                 #
+#                                                                                  #
+#   Arguments       See the Param() block                                          #
+#                                                                                  #
+#   Notes           Function checks if file $fileName is larger than               #
+#                   the parameter $filesize and if it is it will roll a log        #
+#                   and delete the oldest log if there are more than               #
+#                   $logcount logs.                                                #
+#                                                                                  #
+#   History                                                                        #
+#                                                                                  #
+#   Example         Invoke-LogRoll -fileName $logfile -filesize 1mb -logcount 5    #
+#                                                                                  #
+#----------------------------------------------------------------------------------#
 
 Function Invoke-LogRoll
 { 
-    param([string]$fileName, [int64]$fileSize = 128kb , [int] $logcount = 5) 
+    param([Parameter(Mandatory=$true)][string]$fileName, [int64]$fileSize = 128kb , [int] $logcount = 5) 
         
     if (Test-Path $fileName) 
     { 
