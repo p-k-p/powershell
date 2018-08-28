@@ -17,7 +17,7 @@
 #                                                                             #
 #-----------------------------------------------------------------------------#
 
-Function LogRoll
+Function Invoke-LogRoll
 { 
     param([string]$fileName, [int64]$fileSize = 128kb , [int] $logcount = 5) 
         
